@@ -3,9 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 3</title>
+    <title>Assignment 3 Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d6d6ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff6f6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .task {
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h5 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        code {
+            background-color: #f4f4f9;
+            color: #d63384;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        video {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Assignments: 2024-08-02 Document</h1>
+        
+        <div class="task">
+            <h3>Task 1: Cross Compilation</h3>
+            <div>
+                <h5>1.1 Install the Cross Compilation Libraries.</h5>
+                <img src="./public/cross_compile_lib.png" alt="cross_compile_lib">
+                <p>Frist of all we have to install the libary that help us compile the code that we want to compile. In this case we have to download
+                    the aarch64-linux because my raspbery pi is using the aarch64-linux.
+                </p>
+            </div>
+            <div>
+                <h5>1.2 Now we have to write some code that we want to compile.</h5>
+                <img src="./public/compile_code.png" alt="compile_code">
+                <p>
+                    In this case we will use the C language. This is the very simple code all it does is just show 'Hello, World'.
+                </p>
+            </div>
+            <div>
+                <h5>1.3 Use library to compile some code. And send to raspbery pi.</h5>
+                <img src="./public/compile_command.png" alt="compile_command">
+                <p>
+                    The next step is to use the library that we install to compile the code. We will use command <code>aarch64-linux-gnu-gcc -Wall
+                    -static [code that we want to compile] -o [the result of the compile]</code>
+                </p>
+                <p>
+                    Next step is to send out the file that we compile it and send it to our raspbery pi using scp command.
+                </p>
+            </div>
+            <div>
+                <h5>1.4 Test and run.</h5>
+                <img src="./public/test_and_run_compiled_code.png" alt="test_and_run_compiled_code">
+                <p>
+                    This step is to test our compiled code to see if it actually work. We will ssh into our raspbery pi and then cd into 
+                    our path that we send the compiled code. once we found it we will just call it in this case our file name is hello we will
+                     use ./hello.
+                </p>
+            </div>
+        </div>
+        
+        <div class="task">
+            <h3>Task 2: Remote Desktop</h3>
+            <p>
+                This task is to connect to our raspbery pi via the real VNC. The benefit of realVNC is we don't have to spare some monitor
+                for raspbery pi we can just use our monitor to remote our raspbery pi.
+            </p>
+            <div>
+                <h5>2.1 Set up raspbery pi.</h5>
+                <img src="./public/download_pi_imager.png" alt="download_pi_imager">
+                <p>
+                    The first step is to setup our raspbery pi we have to download pi imager to setup os of raspbery pi.
+                </p>
+                <h3>2.1.1 Setting pi imager</h3>
+                <img src="./public/setup_pi_imager.png" alt="setup_pi_imager">
+                <img src="./public/choose_pi_type.png" alt="choose_pi_type">
+                <p>
+                    Once the pi imager download complete we have to set it up.
+                </p>
+                <img src="./public/choose_os.png" alt="choose_os">
+                <p>
+                    We have to choose the os that we gonna use in the case we will use raspbery pi OS.
+                </p>
+                <img src="./public/set_host_wifi.png" alt="set_host_wifi">
+                <p>
+                    This step is setting our raspbery such as setting hostname password and some wifi.
+                </p>
+                <h3>2.1.2 Try to connect</h3>
+                <img src="./public/download_nmap.png" alt="download_nmap">
+                <p>
+                    First of all we have to download some tool to help us find our raspbery pi. The tool that we gonna use is Nmap.
+                    This tool is help us by finding our IP of raspbery pi to use that IP to connect to the raspbery pi via the SSH.
+                </p>
+                <img src="./public/nmap_sn.png" alt="nmap_sn">
+                <p>
+                    Use the nmap -sn to get all the IP of raspbery pi.
+                </p>
+                <img src="./public/ssh_connect.png" alt="ssh_connect">
+                <p>
+                    Connect to the raspbery pi via SSH.
+                </p>
+            </div>
+            <div>
+                <h5>2.2 Download realVNC</h5>
+                <img src="./public/download_realvnc.png" alt="download_realvnc">
+                <p>
+                    Download the realVNC via the realVNC website.
+                </p>
+                <img src="./public/sudo_realvnc.png" alt="sudo_realvnc">
+                <p>
+                    But first before we are going to connect to it we have to setup our raspbery pi to use realVNC first.
+                </p>
+                <img src="./public/raspi_config.png" alt="raspi_config">
+                <p>
+                    Next we gonna config our raspbery pi using command <code>raspi-config</code> Then following these step below.
+                </p>
+                <img src="./public/raspiconfig1.png" alt="raspiconfig1">
+                <img src="./public/raspiconfig2.png" alt="raspiconfig2">
+                <img src="./public/raspiconfig3.png" alt="raspiconfig3">
+
+            </div>
+            <div>
+                <h5>2.3 Connect using realVNC</h5>
+                <p>
+                    Once we finish config our raspbery pi we will open the realVNC program. And the try to create some new connection.
+                </p>
+                <img src="./public/add_connection.png" alt="add_connection">
+                <img src="./public/add_connection1.png" alt="add_connection1">
+                <img src="./public/add_connection2.png" alt="add_connection2">
+                <p>
+                    If nothing goes wrong we will success connecting to our raspbery pi
+                </p>
+            </div>
+            <div>
+                <h5>Task 3: Docker Engine Installation</h5>
+                <p>
+                    Now we gonna install the Docker Engine
+                </p>
+                <img src="./public/docker_sh_script.png" alt="docker_sh_script">
+                <p>This step is to install Docker using curl. And then run the script file that use to install Docker</p>
+                <img src="./public/docker_hello_error.png" alt="docker_hello_error">
+                <p>
+                    But once we successfull download and try to run it we will get the following error. 
+                    Because we have to give some permission to Docker first. 
+                </p>
+                <img src="./public/add_docker_user.png" alt="add_docker_user">
+                <p>
+                    We will run the following command and then we have to signout and login again to use the Docker properly.
+                </p>
+                <img src="./public/docker_hello_world.png" alt="docker_hello_world">
+                <p>
+                    Run Docker Hello world to check if the Docker work correctly.
+                </p>
+            </div>
+            <div>
+                <h5>Task 4: Arduino Sketch Compilation under Docker.</h5>
+                <img src="./public/create_docker_folder.png" alt="create_docker_folder">
+                <img src="./public/dockerfile.png" alt="dockerfile">
+                <p>
+                    First we gonna create some folder for our project. And once we create it we gonna create some Dockerfile
+                </p>
+                <img src="./public/blink_ino.png" alt="blink_ino">
+                <p>Next is create some arduino file that we gonna compile and pass to our arduino</p>
+                <img src="./public/build_docker.png" alt="build_docker">
+                <p>
+                    Next is to build some Docker container via the following command <code>docker build -t arduino-cli-project .</code>
+                </p>
+                <img src="./public/docker_run.png" alt="docker_run">
+                <p>
+                    This last step is to compile our arduino code and upload it to our arduino. We have to select the correct port to make the 
+                    arduino run properly.
+                </p>
+                <video width="700" height="500" controls="controls">
+                    <source src="./public/arduino_blink.mp4" type="video/mp4">
+                <p>
+                    Now we should see that our arduino is start blinking !!
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
